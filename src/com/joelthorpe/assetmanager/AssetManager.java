@@ -12,10 +12,18 @@ public class AssetManager {
         this.assetList = new ArrayList<>();
     }
 
-    // Method to add a new asset to the list
-    public void addAsset(HardwareAsset asset) {
+    // Method to add a new asset to the list, preventing duplicate IDs
+    public boolean addAsset(HardwareAsset asset) {
+        // Check if an asset with this ID already exists
+        if (findAssetById(asset.getId()) != null) {
+            System.out.println("Error: An asset with ID " + asset.getId() + " already exists in the catalogue.");
+            return false;
+        }
+
+        // If no duplicate is found, add the asset
         assetList.add(asset);
         System.out.println("Success: Asset '" + asset.getName() + "' has been added to the catalogue.");
+        return true;
     }
 
     // Method to display all assets
