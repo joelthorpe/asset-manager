@@ -26,17 +26,10 @@ public class Main {
             // Handle the user's menu choice and perform the requested operation
             switch (choice) {
                 case "1":
-                    System.out.print("Enter Asset ID: ");
-                    int id = Integer.parseInt(input.nextLine());
-
-                    System.out.print("Enter Asset Name: ");
-                    String name = input.nextLine();
-
-                    System.out.print("Enter Asset Category (e.g. Laptop, Server):  ");
-                    String category = input.nextLine();
-
-                    System.out.print("Is it currently online? (true/false): ");
-                    boolean isOnline = Boolean.parseBoolean(input.nextLine());
+                    int id = InputUtils.readInt(input, "Enter Asset ID: ");
+                    String name = InputUtils.readString(input, "Enter Asset Name: ");
+                    String category = InputUtils.readString(input, "Enter Asset Category (e.g. Laptop, Server):  ");
+                    boolean isOnline = InputUtils.readBoolean(input, "Is it currently online? (true/false): ");
 
                     HardwareAsset newAsset = new HardwareAsset(id, name, category, isOnline);
                     manager.addAsset(newAsset);
@@ -47,8 +40,7 @@ public class Main {
                     break;
 
                 case "3":
-                    System.out.print("Enter the ID of the asset to find: ");
-                    int searchId = Integer.parseInt(input.nextLine());
+                    int searchId = InputUtils.readInt(input, "Enter the ID of the asset to find: ");
                     HardwareAsset foundAsset = manager.findAssetById(searchId);
 
                     if (foundAsset != null) {
@@ -59,8 +51,7 @@ public class Main {
                     break;
 
                 case "4":
-                    System.out.print("Enter the ID of the asset to remove: ");
-                    int removeId = Integer.parseInt(input.nextLine());
+                    int removeId = InputUtils.readInt(input, "Enter the ID of the asset to remove: ");
                     manager.removeAsset(removeId);
                     break;
 
@@ -73,7 +64,6 @@ public class Main {
                     System.out.println("Invalid choice. Please select an option between 1 and 5.");
             }
         }
-
         input.close();
     }
 }
