@@ -64,6 +64,29 @@ public class AssetManager {
     }
 
     /**
+     * Updates the details of an existing asset.
+     * @param id            the ID of the asset to update
+     * @param newName       the new name of the asset
+     * @param newCategory   the new category of the asset
+     * @param isOnline      the new online status
+     * @return              true if updated successfully, false if the asset was not found
+     */
+    public boolean updateAsset(int id, String newName, String newCategory, boolean isOnline) {
+        HardwareAsset assetToUpdate = findAssetById(id);
+
+        if (assetToUpdate != null) {
+            assetToUpdate.setName(newName);
+            assetToUpdate.setCategory(newCategory);
+            assetToUpdate.setOnline(isOnline);
+            System.out.println("Success: Asset ID " + id + " has been updated.");
+            return true;
+        }
+
+        System.out.println("Error: Could not find an asset with ID " + id + " to update.");
+        return false;
+    }
+
+    /**
      * Removes an asset from the collection using its ID.
      * @param id        the ID of the asset to remove
      */

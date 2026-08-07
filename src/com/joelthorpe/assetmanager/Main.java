@@ -17,18 +17,19 @@ public class Main {
             System.out.println("1. Add a new asset");
             System.out.println("2. Display all assets");
             System.out.println("3. Find an asset by ID");
-            System.out.println("4. Remove an asset");
-            System.out.println("5. Exit");
-            System.out.print("Please enter your choice (1-5): ");
+            System.out.println("4. Update an asset");
+            System.out.println("5. Remove an asset");
+            System.out.println("6. Exit");
+            System.out.print("Please enter your choice (1-6): ");
 
             String choice = input.nextLine();
 
             // Process the selected menu option
             switch (choice) {
                 case "1":
-                    int id = InputUtils.readInt(input, "Enter Asset ID: ");
-                    String name = InputUtils.readString(input, "Enter Asset Name: ");
-                    String category = InputUtils.readString(input, "Enter Asset Category (e.g. Laptop, Server):  ");
+                    int id = InputUtils.readInt(input, "Enter asset ID: ");
+                    String name = InputUtils.readString(input, "Enter asset name: ");
+                    String category = InputUtils.readString(input, "Enter asset category (e.g. Laptop, Server):  ");
                     boolean isOnline = InputUtils.readBoolean(input, "Is it currently online? (true/false): ");
 
                     HardwareAsset newAsset = new HardwareAsset(id, name, category, isOnline);
@@ -51,17 +52,31 @@ public class Main {
                     break;
 
                 case "4":
+                    int updateId = InputUtils.readInt(input, "Enter the ID of the asset to update: ");
+                    // Check if it exists before asking for all the new details
+                    if (manager.findAssetById(updateId) != null) {
+                        String newName = InputUtils.readString(input, "Enter new asset name: ");
+                        String newCategory = InputUtils.readString(input, "Enter new asset category: ");
+                        boolean newStatus = InputUtils.readBoolean(input, "Is it currently online? (true/false): ");
+
+                        manager.updateAsset(updateId, newName, newCategory, newStatus);
+                    } else {
+                        System.out.println("Error: No asset found with ID: " + updateId);
+                    }
+                    break;
+
+                case "5":
                     int removeId = InputUtils.readInt(input, "Enter the ID of the asset to remove: ");
                     manager.removeAsset(removeId);
                     break;
 
-                case "5":
+                case "6":
                     System.out.println("Exiting the system. Goodbye!");
                     isRunning = false;
                     break;
 
                 default:
-                    System.out.println("Invalid choice. Please select an option between 1 and 5.");
+                    System.out.println("Invalid choice. Please select an option between 1 and 6.");
             }
         }
         input.close();
