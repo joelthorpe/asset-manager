@@ -27,9 +27,9 @@ A Java-based Command Line Interface (CLI) application for managing IT hardware a
 3. Run `Main.java` to start the interactive console menu.
 
 ## Future Improvements
-* Add input validation for user entries
-* Prevent duplicate asset IDs
-* Add asset update functionality
-* Add file-based data persistence
-* Add database integration
-* Add graphical user interface (GUI)
+- [x] Add input validation for user entries
+- [ ] Prevent duplicate asset IDs
+- [ ] Add asset update functionality
+- [ ] Add file-based data persistence
+- [ ] Add database integration
+- [ ] Add graphical user interface (GUI)
