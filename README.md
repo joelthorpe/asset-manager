@@ -28,7 +28,7 @@ A Java-based Command Line Interface (CLI) application for managing IT hardware a
 
 ## Future Improvements
 - [x] Add input validation for user entries
-- [ ] Prevent duplicate asset IDs
+- [x] Prevent duplicate asset IDs
 - [ ] Add asset update functionality
 - [ ] Add file-based data persistence
 - [ ] Add database integration
