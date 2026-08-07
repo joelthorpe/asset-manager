@@ -11,6 +11,9 @@ public class InputUtils {
 
     /**
      * Prompts the user until a valid integer is entered.
+     * @param input     the Scanner used to read console input
+     * @param prompt    the message displayed to the user
+     * @return          the validated integer entered by the user
      */
     public static int readInt(Scanner input, String prompt) {
         while (true) {
@@ -25,7 +28,10 @@ public class InputUtils {
     }
 
     /**
-     *  Prompts the user until a valid non-empty string is entered.
+     * Prompts the user until a valid non-empty string is entered.
+     * @param input     the Scanner used to read console input
+     * @param prompt    the message displayed to the user
+     * @return          the validated non-empty string entered by the user
      */
     public static String readString(Scanner input, String prompt) {
         while (true) {
@@ -39,7 +45,10 @@ public class InputUtils {
     }
 
     /**
-     *  Prompts the user until either 'true' or 'false' is entered.
+     * Prompts the user until either 'true' or 'false' is entered.
+     * @param input     the Scanner used to read console input
+     * @param prompt    the message displayed to the user
+     * @return          the validated boolean entered by the user
      */
     public static boolean readBoolean(Scanner input, String prompt) {
         while (true) {

@@ -2,31 +2,41 @@ package com.joelthorpe.assetmanager;
 
 import java.util.ArrayList;
 
+/**
+ * Manages a collection of hardware assets.
+ * Provides functionality for adding, finding, displaying, and removing assets.
+ */
 public class AssetManager {
 
     // Private ArrayList to store hardware assets
     private ArrayList<HardwareAsset> assetList;
 
-    // Constructor to initialise the empty list when the manager is created
+    /**
+     * Initialises an empty asset list when the manager is created.
+     */
     public AssetManager() {
         this.assetList = new ArrayList<>();
     }
 
-    // Method to add a new asset to the list, preventing duplicate IDs
+    /**
+     * Adds a new asset to the collection if its ID is not already in use.
+     * @param asset    the hardware asset to add
+     * @return         true if the asset was added successfully, false if a duplicate ID exists
+     */
     public boolean addAsset(HardwareAsset asset) {
-        // Check if an asset with this ID already exists
         if (findAssetById(asset.getId()) != null) {
             System.out.println("Error: An asset with ID " + asset.getId() + " already exists in the catalogue.");
             return false;
         }
 
-        // If no duplicate is found, add the asset
         assetList.add(asset);
         System.out.println("Success: Asset '" + asset.getName() + "' has been added to the catalogue.");
         return true;
     }
 
-    // Method to display all assets
+    /**
+     * Displays all hardware assets currently stored in the collection.
+     */
     public void displayAllAssets() {
         if(assetList.isEmpty()) {
             System.out.println("The catalogue is currently empty.");
@@ -39,17 +49,24 @@ public class AssetManager {
         }
     }
 
-    // Method to find an asset by its ID
+    /**
+     * Finds an asset using its unique ID.
+     * @param id    the ID of the asset to find
+     * @return      the matching hardware asset, or null if no asset exists with that ID
+     */
     public HardwareAsset findAssetById(int id) {
         for (HardwareAsset asset : assetList) {
             if (asset.getId() == id) {
                 return asset;
             }
         }
-        return null; // Return null if asset is not found
+        return null;
     }
 
-    // Method to remove an asset by its ID
+    /**
+     * Removes an asset from the collection using its ID.
+     * @param id        the ID of the asset to remove
+     */
     public void removeAsset(int id) {
         HardwareAsset assetToRemove = findAssetById(id);
 
