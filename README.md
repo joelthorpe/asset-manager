@@ -1,12 +1,13 @@
 # Asset Management System
 
-A Java-based Command Line Interface (CLI) application for managing IT hardware assets. This project was built to demonstrate Object-Oriented Programming (OOP) principles, encapsulation, and collection management using Java.
+A Java-based command-line interface (CLI) application for managing IT hardware assets. This project was built to demonstrate Object-Oriented Programming (OOP) principles, encapsulation, and collection management using Java.
 
 ## Features
 * **Add Assets:** Register new hardware assets (e.g. laptops, servers) with details such as ID, category, and online/offline status.
 * **View Catalogue:** Display all currently tracked hardware assets.
 * **Find Assets:** Locate specific assets using their unique ID.
-* **Remove Assets:** Safely delete hardware from the system.
+* **Update Assets:** Modify the name, category, and online/offline status of an existing hardware asset using its unique ID.
+* **Remove Assets:** Remove hardware assets from the catalogue using their unique ID.
 
 ## Concepts Demonstrated
 * Object-Oriented Programming (OOP)
@@ -15,6 +16,22 @@ A Java-based Command Line Interface (CLI) application for managing IT hardware a
 * ArrayList collection management
 * Methods and modular code structure
 * Console-based user interaction
+
+## Project Structure
+The application is separated into four classes, with each class responsible for a specific part of the system:
+
+```text
+src/
+└── com.joelthorpe.assetmanager/
+    ├── Main.java
+    ├── AssetManager.java
+    ├── HardwareAsset.java
+    └── InputUtils.java
+```
+* **`Main.java`** - Handles the main menu and user interaction.
+* **`AssetManager.java`** - Manages the collection of hardware assets and provides add, find, update, display, and remove functionality.
+* **`HardwareAsset.java`** - Represents an individual hardware asset and stores its details.
+* **`InputUtils.java`** - Provides reusable methods for validating console input.
 
 ## Technologies Used
 * Java
