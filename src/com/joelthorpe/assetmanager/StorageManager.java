@@ -13,7 +13,6 @@ import java.util.ArrayList;
  * Provides functionality to save and load assets from a .CSV file.
  */
 public class StorageManager {
-
     // Private constructor to prevent instantiation of a utility class
     private StorageManager() {}
 
@@ -48,7 +47,6 @@ public class StorageManager {
                 bw.write(csvLine);
                 bw.newLine();
             }
-
             bw.close();
             fw.close();
             System.out.println("Success: Catalogue saved to '" + filename + "'.");
@@ -98,7 +96,6 @@ public class StorageManager {
                 // Read the next line
                 line = br.readLine();
             }
-
             br.close();
             fr.close();
             System.out.println("Success: Catalogue loaded from '" + filename + "'.");
@@ -106,7 +103,6 @@ public class StorageManager {
             System.out.println("Error: An issue occurred while loading from '" + filename + "'.");
             ex.printStackTrace();
         }
-
         return loadedAssets;
     }
 
