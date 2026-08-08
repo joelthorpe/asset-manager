@@ -100,4 +100,20 @@ public class AssetManager {
             System.out.println("Error: Could not find an asset with ID " + id + " to remove.");
         }
     }
+
+    /**
+     * Retrieves the current list of assets.
+     * @return      the ArrayList of hardware assets
+     */
+    public ArrayList<HardwareAsset> getAssetList() {
+        return this.assetList;
+    }
+
+    /**
+     * Overwrites the current asset list with the loaded list.
+     * @param loadedAssets      the ArrayList of hardware assets to load
+     */
+    public void setAssetList(ArrayList<HardwareAsset> loadedAssets) {
+        this.assetList = loadedAssets;
+    }
 }

@@ -1,8 +1,12 @@
 package com.joelthorpe.assetmanager;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
+
+    private static final String FILENAME = "assets.csv";
+
     public static void main(String[] args) {
         // Initialise application components before starting the main loop
         Scanner input = new Scanner(System.in);
@@ -10,6 +14,10 @@ public class Main {
         boolean isRunning = true;
 
         System.out.println("Welcome to the Asset Management System!");
+
+        // Load data on startup
+        ArrayList<HardwareAsset> loadedData = StorageManager.loadAssets(FILENAME);
+        manager.setAssetList(loadedData);
 
         // Main application loop
         while (isRunning) {
@@ -71,6 +79,8 @@ public class Main {
                     break;
 
                 case "6":
+                    // Save data upon exiting the program
+                    StorageManager.saveAssets(manager.getAssetList(), FILENAME);
                     System.out.println("Exiting the system. Goodbye!");
                     isRunning = false;
                     break;

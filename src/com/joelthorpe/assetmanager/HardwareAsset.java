@@ -66,5 +66,4 @@ public class HardwareAsset {
         return String.format("ID: %d | Name: %s | Category: %s | Status: %s",
                 id, name, category, status);
     }
-
 }
